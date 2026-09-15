@@ -94,12 +94,41 @@ No testimonials were fabricated. A labeled placeholder in the "What Your New
 Website Should Do" section explains that testimonials will be added once
 available — replace it with real client quotes when you have them.
 
+## 6. About section photo
+
+The "Meet Emmanuel A." section uses a stylized monogram card ("EA") instead
+of a stock photo of a stranger. Swap `.monogram-card` in `index.html` for a
+real headshot `<img>` whenever one is available — the card's dark background
+and layout are sized to drop a portrait straight in.
+
+## 7. Calendly link
+
+"Book a Free Call" / "Book a Free 30-Minute Consultation" buttons throughout
+the page (hero, About section, final CTA, contact sidebar) link to
+`https://calendly.com/emmanuelwebflow/30mins`. Update that URL in
+`index.html` if the Calendly link ever changes — it appears in five places,
+each with its own `data-cta` value for tracking.
+
+## Design system
+
+- **Fonts**: Space Grotesk (headings) + Inter (body), loaded from Google
+  Fonts in `<head>`. Falls back to the system sans stack if the font request
+  fails, so the page never breaks without them.
+- **Palette**: deep forest green (`--navy`) as the primary dark/text color,
+  warm cream background, a bold lime accent (`--lime`) for high-energy CTAs
+  and highlighted headline words, all checked for WCAG AA contrast.
+- **Motion**: scroll-reveal (fade/slide), an auto-scrolling marquee trust
+  strip, and a subtle hover lift on the hero mockup — all built with plain
+  CSS/JS, no animation library. Reveal is visible-by-default (see
+  `html.js .reveal` in `css/styles.css`) so nothing depends on JavaScript
+  running to be seen, and honors `prefers-reduced-motion`.
+
 ## Accessibility & performance notes
 
 - Semantic HTML throughout (`header`, `main`, `section`, `footer`, proper
   heading hierarchy, `<details>/<summary>` for the FAQ accordion).
-- No external fonts, images, or JS libraries — the whole page is
-  hand-authored HTML/CSS/inline SVG plus one small vanilla-JS file, so there's
-  nothing to lazy-load and no render-blocking third-party requests.
+- No JS animation libraries or component frameworks — the whole page is
+  hand-authored HTML/CSS/inline SVG plus one small vanilla-JS file, so
+  there's nothing to lazy-load beyond the two Google Fonts requests.
 - Focus-visible states, labeled form fields, `aria-live` status region for
   form errors/success, and `prefers-reduced-motion` support are all included.
