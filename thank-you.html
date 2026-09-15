@@ -24,21 +24,25 @@
   .ty-steps svg { width: 19px; height: 19px; color: var(--teal-dark); margin-top: 3px; flex-shrink: 0; }
 </style>
 
-<!--
-  Google Ads / GA4 conversion tracking — page-load conversion
-  ------------------------------------------------------------
-  This page loads only after a successful form submission, so it's a
-  reliable "page load" trigger for a Google Ads conversion action.
-  Paste your gtag.js loader here (same snippet as index.html) and add
-  a conversion event fire below.
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18447413113"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  gtag('config', 'AW-18447413113');
+</script>
+<!--
+  This page loads only after a successful form submission, so it also
+  doubles as a reliable "page load" trigger for a Google Ads conversion
+  action if you'd rather use that instead of (or alongside) the
+  "generate_lead" event already fired from js/main.js. To wire it up,
+  create a conversion action in Google Ads, then uncomment and fill in
+  its label below:
+
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-XXXXXXXXX');
-    gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/YOUR_CONVERSION_LABEL' });
+    gtag('event', 'conversion', { send_to: 'AW-18447413113/YOUR_CONVERSION_LABEL' });
   </script>
 -->
 </head>

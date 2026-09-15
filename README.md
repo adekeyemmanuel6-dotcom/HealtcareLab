@@ -49,18 +49,19 @@ If you want stronger spam protection, add Google reCAPTCHA v3 (invisible) or
 your form service's built-in spam filtering — both work without adding
 friction to the form.
 
-## 2. Add Google Ads / GA4 conversion tracking
+## 2. Google Ads / GA4 conversion tracking
 
-`index.html` has a commented placeholder in `<head>` for the gtag.js loader.
-Uncomment it and add your own container/conversion ID:
+The gtag.js loader is already installed in `<head>` on every page
+(`index.html`, `thank-you.html`, `privacy.html`), pointed at container
+`AW-18447413113`:
 
 ```html
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18447413113"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-XXXXXXXXX');
+  gtag('config', 'AW-18447413113');
 </script>
 ```
 
@@ -83,9 +84,11 @@ the tracking plan.
 
 Alternatively (or in addition), since a successful submission now redirects
 to `thank-you.html`, you can set up a simpler **page load** conversion
-action in Google Ads targeting `/thank-you` — `thank-you.html` has its own
-commented gtag placeholder for this. A page-load trigger is easier to set
-up correctly than an event-based one, and only fires after a real redirect,
+action in Google Ads targeting `/thank-you`. `thank-you.html` already loads
+the base gtag tag; it has a commented `gtag('event', 'conversion', ...)`
+call ready to uncomment once you create the conversion action in Google
+Ads and have its label to fill in. A page-load trigger is easier to set up
+correctly than an event-based one, and only fires after a real redirect,
 not a button click.
 
 ## 3. Update the OG image (optional)
