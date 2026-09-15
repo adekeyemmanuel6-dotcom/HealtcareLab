@@ -76,6 +76,7 @@ button { font-family: inherit; }
 .hl-lime {
   background: linear-gradient(180deg, transparent 60%, var(--lime) 60%);
   padding-inline: 3px;
+  white-space: nowrap;
 }
 
 .container {
@@ -332,7 +333,7 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
   pointer-events: none;
 }
 
-.hero-copy-center { position: relative; z-index: 1; max-width: 780px; margin-inline: auto; text-align: center; }
+.hero-copy-center { position: relative; z-index: 1; max-width: 1020px; margin-inline: auto; text-align: center; }
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -354,18 +355,27 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
 .hero-badge-tag { background: var(--lime); color: var(--navy); font-size: 0.8125rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; }
 
 .hero-copy-center h1 {
-  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  font-size: clamp(2.75rem, 6.6vw, 5.75rem);
   color: #fff;
   margin-bottom: 24px;
-  max-width: 18ch;
+  max-width: 21ch;
   margin-inline: auto;
 }
-.hero-dark .hl-lime { color: var(--navy); }
+/* On the dark hero, the partial "highlighter" gradient (transparent
+   top + lime bottom) leaves navy text nearly invisible against the dark
+   background wherever it sits over the transparent portion. Use a solid
+   full-height lime block instead so the navy text always has contrast. */
+.hero-dark .hl-lime {
+  background: var(--lime);
+  color: var(--navy);
+  border-radius: 6px;
+  padding-inline: 10px;
+}
 .hero-copy-center .lede {
-  font-size: 1.25rem;
+  font-size: 1.3125rem;
   line-height: 1.55;
   color: #C7D2C2;
-  max-width: 52ch;
+  max-width: 62ch;
   margin-inline: auto;
   margin-bottom: 32px;
 }
@@ -388,11 +398,13 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
 .hero-cards {
   position: relative;
   z-index: 1;
+  max-width: 1180px;
+  margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
   margin-top: 64px;
 }
 .hero-card {
@@ -400,13 +412,13 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 50px rgba(0,0,0,0.28);
 }
-.hero-card-laptop { padding: 0; overflow: hidden; flex: 0 0 auto; width: min(400px, 80vw); }
+.hero-card-laptop { padding: 0; overflow: hidden; flex: 0 0 auto; width: min(480px, 85vw); }
 .hero-card-stat {
-  padding: 24px 26px;
+  padding: 28px 30px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-width: 168px;
+  min-width: 190px;
 }
 .hero-card-stat:nth-of-type(2) { transform: translateY(-18px); }
 .hero-card-stat:nth-of-type(4) { transform: translateY(14px); }
@@ -677,17 +689,20 @@ html.js .hero-card-laptop:hover .laptop-lid { transform: rotateX(1.5deg); }
 .testimonial-placeholder p { margin: 0; font-size: 1rem; }
 
 /* ---------------- Portfolio ---------------- */
-.portfolio-card { padding: 0; overflow: hidden; height: 100%; }
-.portfolio-thumb { aspect-ratio: 4 / 3; background: linear-gradient(160deg, var(--teal-light), #fff 70%); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-.portfolio-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.portfolio-thumb .concept-tag { position: absolute; top: 14px; right: 14px; z-index: 2; font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: #fff; border: 1px solid var(--border); color: var(--slate-light); padding: 4px 10px; border-radius: 6px; }
-.portfolio-body { padding: 22px 24px 26px; }
-.portfolio-body .industry { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 8px; display: block; }
-.portfolio-body h3 { font-size: 1.1875rem; margin-bottom: 8px; }
-.portfolio-body p { font-size: 1rem; margin-bottom: 16px; }
-.portfolio-link { font-size: 1rem; font-weight: 700; color: var(--teal-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
-.portfolio-link:hover { text-decoration: underline; }
-.portfolio-note { margin-top: 32px; font-size: 1rem; color: var(--slate-light); text-align: center; }
+.portfolio-image {
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--teal-light), #fff 70%);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.portfolio-image:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.portfolio-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+.portfolio-image:hover img { transform: scale(1.04); }
 
 /* ==========================================================================
    Carousel — native scroll-snap track, works with touch/trackpad by
@@ -761,7 +776,8 @@ html.js .hero-card-laptop:hover .laptop-lid { transform: rotateX(1.5deg); }
   flex-direction: column;
   gap: 20px;
 }
-.testimonial-card svg.quote-mark { width: 30px; height: 30px; color: var(--lime); opacity: 0.7; }
+.testimonial-stars { display: flex; gap: 4px; color: #F5B335; }
+.testimonial-stars svg { width: 17px; height: 17px; }
 .testimonial-card p { color: #EAF1EA; font-size: 1.0625rem; line-height: 1.6; margin: 0; flex: 1; }
 .testimonial-person { display: flex; align-items: center; gap: 12px; }
 .testimonial-avatar {
@@ -772,6 +788,11 @@ html.js .hero-card-laptop:hover .laptop-lid { transform: rotateX(1.5deg); }
   font-family: var(--font-display); font-weight: 600; font-size: 0.9375rem;
   flex-shrink: 0;
 }
+.testimonial-avatar.pastel-1 { background: var(--pastel-blue-bg); color: var(--pastel-blue-fg); }
+.testimonial-avatar.pastel-2 { background: var(--pastel-amber-bg); color: var(--pastel-amber-fg); }
+.testimonial-avatar.pastel-3 { background: var(--pastel-purple-bg); color: var(--pastel-purple-fg); }
+.testimonial-avatar.pastel-4 { background: var(--pastel-green-bg); color: var(--pastel-green-fg); }
+.testimonial-avatar.pastel-5 { background: var(--pastel-blue-bg); color: var(--pastel-blue-fg); }
 .testimonial-name { font-weight: 700; color: #fff; font-size: 1rem; }
 .testimonial-role { font-size: 0.9375rem; color: #90A28C; }
 .testimonial-placeholder-card {
@@ -1033,9 +1054,20 @@ body.has-sticky-cta { padding-bottom: 80px; }
 .radial-list.left { margin-right: -20px; }
 .radial-list.right { margin-left: -20px; }
 @media (max-width: 1080px) { .radial-list.left, .radial-list.right { margin: 0; } }
-.radial-item { display: flex; align-items: center; gap: 14px; padding: 4px 0; font-size: 1.0625rem; font-weight: 600; color: var(--slate); transition: color 0.3s var(--ease); }
+.radial-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 4px 18px rgba(16,40,31,0.05);
+  font-size: 1.0625rem; font-weight: 600; color: var(--slate);
+  transition: background-color 0.3s var(--ease), box-shadow 0.3s var(--ease), color 0.3s var(--ease);
+}
 .radial-item svg { width: 19px; height: 19px; color: var(--teal); flex-shrink: 0; }
-.radial-item.active { color: var(--navy); font-weight: 700; }
+.radial-item.active { background: rgba(255,255,255,0.75); box-shadow: 0 8px 26px rgba(16,40,31,0.09); color: var(--navy); font-weight: 700; }
 .radial-row { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; }
 @media (max-width: 1080px) { .radial-row { flex-direction: column; gap: 28px; } .radial-list { width: 100%; max-width: 420px; } }
 
