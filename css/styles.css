@@ -729,8 +729,14 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
   background: #fff;
   color: var(--navy);
   width: 100%;
+  /* Native <select> boxes compute their height from internal font
+     metrics rather than the inherited line-height, so they can render
+     a few pixels shorter than a sibling <input> using the same
+     padding/border — misaligning side-by-side rows like state/city.
+     Pin an explicit height so every control matches exactly. */
+  height: 53px;
 }
-.field textarea { resize: vertical; min-height: 120px; }
+.field textarea { resize: vertical; min-height: 120px; height: auto; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); }
 .field input[aria-invalid="true"], .field select[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--danger); }
 .field-error { font-size: 1rem; color: var(--danger); font-weight: 600; min-height: 1em; }
