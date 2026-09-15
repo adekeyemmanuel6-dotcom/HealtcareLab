@@ -12,26 +12,32 @@ Static site — no build step or backend required. Files:
 - `js/main.js` — nav, scroll reveal, form validation/submission, conversion tracking hooks
 - `assets/favicon.svg` — minimal wordmark-based icon
 
-## 1. Connect the contact form to email
+## 1. Contact form email delivery
 
-The site has no server, so the form needs a form-to-email service to deliver
-submissions to `adekeyemmanuel6@gmail.com`. The simplest options:
+The site has no server, so the form submits directly to
+[Web3Forms](https://web3forms.com), which emails submissions to
+`adekeyemmanuel6@gmail.com`. This is already configured in `js/main.js`:
 
-1. Create a free account at [Formspree](https://formspree.io) (or Getform,
-   Web3Forms, Basin, etc.).
-2. Create a new form and set its notification email to
-   `adekeyemmanuel6@gmail.com`.
-3. Copy the endpoint URL it gives you (e.g. `https://formspree.io/f/abc123`).
-4. Open `js/main.js` and replace the placeholder at the top of the file:
+```js
+var FORM_ENDPOINT = "https://api.web3forms.com/submit";
+var WEB3FORMS_ACCESS_KEY = "43a2b4ad-3586-45ce-b123-93c9a67545d5";
+```
 
-   ```js
-   var FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-   ```
+Unlike a typical secret API key, a Web3Forms access key is meant to be used
+client-side (their own docs cover this) — that's what makes a no-backend
+static site able to use it directly. To rotate the key (e.g. if it starts
+receiving spam), generate a new one at web3forms.com and replace the value
+above.
 
-Until this is configured, the form still validates and, on submit, falls back
-to opening a pre-filled email draft to `adekeyemmanuel6@gmail.com` so no lead
-is lost — but wiring up a real endpoint is strongly recommended for a
-frictionless experience (no email client required) and for reliable delivery.
+If the access key is ever invalid or unset, the form does **not** silently
+fall back to opening the visitor's email client — that used to trigger a
+confusing "open your email app?" permission prompt and depended on the
+visitor manually hitting send. Instead it shows an honest inline error
+asking the visitor to email `adekeyemmanuel6@gmail.com` directly.
+
+On a successful submission, the visitor is redirected to `thank-you.html`
+(served at the clean `/thank-you` URL on Vercel via `vercel.json`) — point
+your Google Ads conversion action at that page load. See section 2 below.
 
 The form already includes:
 - Full client-side validation with inline error messages
@@ -74,6 +80,13 @@ Uncomment it and add your own container/conversion ID:
 Set your Google Ads **conversion action** to fire on `generate_lead`, not on
 a button click — this ties the conversion to an actual completed lead, per
 the tracking plan.
+
+Alternatively (or in addition), since a successful submission now redirects
+to `thank-you.html`, you can set up a simpler **page load** conversion
+action in Google Ads targeting `/thank-you` — `thank-you.html` has its own
+commented gtag placeholder for this. A page-load trigger is easier to set
+up correctly than an event-based one, and only fires after a real redirect,
+not a button click.
 
 ## 3. Update the OG image (optional)
 

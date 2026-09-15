@@ -7,12 +7,14 @@
   "use strict";
 
   /* ----------------------------------------------------------------------
-   * Config — replace with your real form endpoint before going live.
-   * Create a free form at https://formspree.io (or any form-to-email
-   * service) pointed at adekeyemmanuel6@gmail.com and paste its endpoint
-   * URL below. See README.md for full setup steps.
+   * Config — form submissions are delivered via Web3Forms
+   * (https://web3forms.com), pointed at adekeyemmanuel6@gmail.com. The
+   * access key below is meant to be used client-side (per Web3Forms'
+   * own docs), unlike a typical secret API key. To rotate it, generate a
+   * new key at web3forms.com and replace the value here.
    * ------------------------------------------------------------------- */
-  var FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+  var FORM_ENDPOINT = "https://api.web3forms.com/submit";
+  var WEB3FORMS_ACCESS_KEY = "43a2b4ad-3586-45ce-b123-93c9a67545d5";
   var LEAD_EMAIL = "adekeyemmanuel6@gmail.com";
 
   /* ---------------- Tracking helper (Google Ads / GA4 ready) ---------- */
@@ -489,22 +491,22 @@
       showStatus("", "");
 
       var formData = new FormData(form);
-      formData.set("_subject", "New Website Strategy Request — HealthcareLab");
-      formData.set("lead_destination", LEAD_EMAIL);
+      formData.set("access_key", WEB3FORMS_ACCESS_KEY);
+      formData.set("subject", "New Website Strategy Request — HealthcareLab");
 
-      var isConfigured = FORM_ENDPOINT.indexOf("YOUR_FORM_ID") === -1;
+      var isConfigured = WEB3FORMS_ACCESS_KEY.indexOf("YOUR_ACCESS_KEY") === -1;
 
       if (!isConfigured) {
-        // No form-to-email endpoint configured yet, so there is nowhere to
-        // actually deliver this submission. Never fall back to a mailto:
-        // link here — that triggers the browser's "open your email app?"
-        // permission prompt and leaves the lead unsent unless the visitor
-        // manually hits send in their own mail client. Fail honestly
-        // instead of redirecting to the thank-you page on a lead that was
-        // never captured.
+        // No form-to-email access key configured yet, so there is nowhere
+        // to actually deliver this submission. Never fall back to a
+        // mailto: link here — that triggers the browser's "open your
+        // email app?" permission prompt and leaves the lead unsent unless
+        // the visitor manually hits send in their own mail client. Fail
+        // honestly instead of redirecting to the thank-you page on a lead
+        // that was never captured.
         console.warn(
-          "HealthcareLab form: FORM_ENDPOINT is not configured, so this submission was not delivered. " +
-          "See README.md to connect a form-to-email service (e.g. Formspree, Web3Forms)."
+          "HealthcareLab form: WEB3FORMS_ACCESS_KEY is not configured, so this submission was not delivered. " +
+          "See README.md to connect Web3Forms."
         );
         showStatus(
           "This form isn't fully connected yet. Please email us directly at " +
@@ -521,11 +523,13 @@
         headers: { Accept: "application/json" }
       })
         .then(function (response) {
-          if (response.ok) {
-            onSubmitSuccess();
-          } else {
-            throw new Error("Submission failed");
-          }
+          return response.json().then(function (data) {
+            if (response.ok && data && data.success) {
+              onSubmitSuccess();
+            } else {
+              throw new Error((data && data.message) || "Submission failed");
+            }
+          });
         })
         .catch(function () {
           showStatus(
