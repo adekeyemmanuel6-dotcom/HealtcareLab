@@ -88,6 +88,19 @@ Replace the `.portfolio-thumb` markup with real project screenshots and
 descriptions as work is completed — do not present placeholders as real
 results.
 
+## 5a. "Who We Help" photos — please verify
+
+The `#who-we-help` sector cards (Medical Practices, Doctors & Physicians,
+Clinics, etc.) each try to load a representative Unsplash photo. This
+development sandbox's network policy blocks all image-CDN domains, so these
+specific photo URLs could **not** be test-loaded or verified before shipping.
+Each `<img>` has `onerror="this.remove()"`, so if any URL is stale the card
+falls back to a clean gradient-and-icon placeholder instead of a broken-image
+icon — the section never looks broken either way. **Please open the deployed
+site and confirm all 8 photos actually load**; swap any that don't (or all of
+them, for photos specific to your own work) by replacing the `src` on the
+`.sector-photo img` elements in `index.html`.
+
 ## 5. Testimonials
 
 No testimonials were fabricated. A labeled placeholder in the "What Your New
