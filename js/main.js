@@ -40,6 +40,7 @@
     initScrollDepth();
     initStickyCta();
     initContactForm();
+    initBackToTop();
   });
 
   /* ---------------- Carousels ---------------------------------------------
@@ -180,7 +181,7 @@
      should always animate in immediately on page load instead, so this
      triggers it directly rather than waiting on scroll/intersection. */
   function initHeroEntrance() {
-    var items = document.querySelectorAll(".hero-copy .reveal, .hero-visual.reveal");
+    var items = document.querySelectorAll(".hero-copy-center .reveal");
     if (!items.length) return;
     window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () {
@@ -320,6 +321,20 @@
       );
       observer.observe(contact);
     }
+  }
+
+  /* ---------------- Back to top button ------------------------------------ */
+  function initBackToTop() {
+    var btn = document.querySelector("[data-back-to-top]");
+    if (!btn) return;
+    var onScroll = function () {
+      btn.classList.toggle("is-visible", window.scrollY > 600);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 
   /* ---------------- Contact form: validation + submission ---------------- */
