@@ -93,13 +93,13 @@ not a button click.
 `index.html` references `assets/og-image.png` for social sharing previews.
 Add a 1200×630 image at that path, or remove the `og:image` tag if not needed.
 
-## 4. Replace portfolio/case-study placeholders
+## 4. Portfolio images
 
-The Portfolio section uses clearly labeled "Concept" placeholder cards (CSS
-mockups, not real screenshots) since no real client projects were provided.
-Replace the `.portfolio-thumb` markup with real project screenshots and
-descriptions as work is completed — do not present placeholders as real
-results.
+The `#work` gallery carousel uses real project screenshots at
+`assets/portfolio/portfolio-01.png` through `portfolio-20.png`. Add more by
+dropping a new image in that folder and adding a matching
+`.carousel-slide`/`.portfolio-image` block in `index.html`; the carousel's
+arrows/dots update automatically.
 
 ## 5a. "Who We Help" photos — please verify
 
@@ -116,16 +116,16 @@ them, for photos specific to your own work) by replacing the `src` on the
 
 ## 5. Testimonials
 
-No testimonials were fabricated. A labeled placeholder in the "What Your New
-Website Should Do" section explains that testimonials will be added once
-available — replace it with real client quotes when you have them.
+The "What Clients Think" carousel uses real client quotes and names — no
+testimonials were fabricated. Add more by appending another
+`.testimonial-card` slide in `index.html`.
 
 ## 6. About section photo
 
-The "Meet Emmanuel A." section uses a stylized monogram card ("EA") instead
-of a stock photo of a stranger. Swap `.monogram-card` in `index.html` for a
-real headshot `<img>` whenever one is available — the card's dark background
-and layout are sized to drop a portrait straight in.
+The "Meet Emmanuel A." section uses a real photo (`assets/personal-image.jpg`)
+in `.monogram-card`. To swap it for a different photo, replace that file (or
+change the `src` on `.monogram-photo` in `index.html`) — the card crops to a
+4:5 portrait via `object-fit: cover`.
 
 ## 7. Calendly link
 
