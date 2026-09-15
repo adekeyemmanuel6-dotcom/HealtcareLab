@@ -1,6 +1,6 @@
-# HealthcareLab — Landing Page
+# Healthcare Dev — Landing Page
 
-A single-page, conversion-focused Google Ads landing page for HealthcareLab, a
+A single-page, conversion-focused Google Ads landing page for Healthcare Dev, a
 healthcare website design and development service targeting healthcare
 organizations across Texas.
 
@@ -149,7 +149,7 @@ each with its own `data-cta` value for tracking.
   straight to the final value under `prefers-reduced-motion`.
 - **Icon system**: solid navy/lime badges were replaced with a rotating
   soft-pastel palette (blue/amber/purple/green, defined as `--pastel-*`
-  variables) across trust-bar, Services, and Why HealthcareLab icons, to
+  variables) across trust-bar, Services, and Why Healthcare Dev icons, to
   match a supplied reference image.
 - **Reviews carousel** (`#` "What Clients Think" section): built as a real,
   functional carousel component, but populated only with an honest
@@ -173,14 +173,12 @@ each with its own `data-cta` value for tracking.
 
 ## 8a. Logo
 
-The header/footer logo is a hand-rebuilt SVG (`assets/favicon.svg`) — a
-shield-and-flask mark modeled on the reference image supplied, since that
-image wasn't accessible as a file in this environment (only visible inline
-in chat). The reference image read "Healtcare Lab" (missing an 'h'); the
-wordmark here uses the correct "HealthcareLab" spelling used everywhere else
-on the site. If you have the original logo file, drop it in as
-`assets/logo.svg` (or `.png`) and swap the `<img src="assets/favicon.svg">`
-references in `index.html`/`privacy.html` to point at it.
+The header/footer icon is a hand-rebuilt shield-and-flask SVG
+(`assets/favicon.svg`); the wordmark next to it renders as "Healthcare
+Dev" (`.logo .word`/`.lab` in `css/styles.css`). If you have a real logo
+file, drop it in as `assets/logo.svg` (or `.png`) and swap the
+`<img src="assets/favicon.svg">` references in `index.html`,
+`privacy.html`, and `thank-you.html` to point at it.
 
 ## Design system
 
@@ -197,8 +195,8 @@ references in `index.html`/`privacy.html` to point at it.
   website, not real page copy.
 - **Layout**: sections intentionally vary in structure rather than
   repeating a heading+3-card-grid pattern — an editorial numbered list
-  (Services), a sticky split intro + list (Why HealthcareLab), a radial
-  feature layout, dark stat/pricing blocks, and a DIY-vs-HealthcareLab
+  (Services), a sticky split intro + list (Why Healthcare Dev), a radial
+  feature layout, dark stat/pricing blocks, and a DIY-vs-Healthcare Dev
   comparison table are mixed with a smaller number of card grids.
 - **No decorative gradient blobs**: replaced with a faint engineered grid
   texture (`.texture-grid`) used sparingly behind the hero, stats, and

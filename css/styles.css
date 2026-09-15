@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HealthcareLab — Landing Page Styles
+   Healthcare Dev — Landing Page Styles
    Mobile-first. Editorial healthcare-tech system: Funnel Display + Funnel
    Sans, a 1400px content width, a strict 16px text floor, and restrained,
    intentional motion. WCAG 2.2 AA contrast throughout.
@@ -494,7 +494,7 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
 .section-dark .row-item h3 { color: #fff; }
 .section-dark .row-item .row-num { color: #90A28C; }
 
-/* ---------------- Why HealthcareLab (split intro + list) ---------------- */
+/* ---------------- Why Healthcare Dev (split intro + list) ---------------- */
 .why-wrap { display: grid; gap: 20px; }
 @media (min-width: 900px) { .why-wrap { grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: start; } }
 .why-intro { position: relative; }
@@ -874,7 +874,7 @@ body.has-sticky-cta .back-to-top { bottom: calc(80px + env(safe-area-inset-botto
 .about-points li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.0625rem; color: var(--navy); font-weight: 600; }
 .about-points svg { width: 19px; height: 19px; color: var(--teal); margin-top: 3px; flex-shrink: 0; }
 
-/* ---------------- Comparison table (DIY vs HealthcareLab) ---------------- */
+/* ---------------- Comparison table (DIY vs Healthcare Dev) ---------------- */
 .compare-wrap { display: grid; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); }
 @media (min-width: 720px) { .compare-wrap { grid-template-columns: 1fr 1fr; } }
 .compare-col { padding: 32px 28px; }

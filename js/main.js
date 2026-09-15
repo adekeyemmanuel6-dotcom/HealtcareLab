@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HealthcareLab — Landing Page Behavior
+   Healthcare Dev — Landing Page Behavior
    Nav toggle, sticky header, reveal animations, form validation/submission,
    and lightweight conversion-tracking hooks ready for Google Ads / GA4.
    ========================================================================== */
@@ -492,7 +492,7 @@
 
       var formData = new FormData(form);
       formData.set("access_key", WEB3FORMS_ACCESS_KEY);
-      formData.set("subject", "New Website Strategy Request — HealthcareLab");
+      formData.set("subject", "New Website Strategy Request — Healthcare Dev");
 
       var isConfigured = WEB3FORMS_ACCESS_KEY.indexOf("YOUR_ACCESS_KEY") === -1;
 
@@ -505,7 +505,7 @@
         // honestly instead of redirecting to the thank-you page on a lead
         // that was never captured.
         console.warn(
-          "HealthcareLab form: WEB3FORMS_ACCESS_KEY is not configured, so this submission was not delivered. " +
+          "Healthcare Dev form: WEB3FORMS_ACCESS_KEY is not configured, so this submission was not delivered. " +
           "See README.md to connect Web3Forms."
         );
         showStatus(
