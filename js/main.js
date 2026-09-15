@@ -343,8 +343,6 @@
     if (!form) return;
 
     var statusBox = document.getElementById("form-status");
-    var formPanel = document.getElementById("form-panel");
-    var successPanel = document.getElementById("form-success");
     var hasWebsiteRadios = form.querySelectorAll('input[name="has_website"]');
     var websiteUrlField = document.getElementById("current-website-url-field");
     var startedTracking = false;
@@ -497,15 +495,22 @@
       var isConfigured = FORM_ENDPOINT.indexOf("YOUR_FORM_ID") === -1;
 
       if (!isConfigured) {
-        // Endpoint not yet configured for this deployment: fall back to a
-        // pre-filled email draft so no lead is lost, and let the site owner
-        // know via the console how to finish wiring up delivery.
+        // No form-to-email endpoint configured yet, so there is nowhere to
+        // actually deliver this submission. Never fall back to a mailto:
+        // link here — that triggers the browser's "open your email app?"
+        // permission prompt and leaves the lead unsent unless the visitor
+        // manually hits send in their own mail client. Fail honestly
+        // instead of redirecting to the thank-you page on a lead that was
+        // never captured.
         console.warn(
-          "HealthcareLab form: FORM_ENDPOINT is not configured. " +
-          "See README.md to connect a form-to-email service. Falling back to mailto."
+          "HealthcareLab form: FORM_ENDPOINT is not configured, so this submission was not delivered. " +
+          "See README.md to connect a form-to-email service (e.g. Formspree, Web3Forms)."
         );
-        submitViaMailtoFallback(formData);
-        onSubmitSuccess();
+        showStatus(
+          "This form isn't fully connected yet. Please email us directly at " +
+            LEAD_EMAIL + " and we'll follow up right away.",
+          "error"
+        );
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
         return;
       }
@@ -537,26 +542,10 @@
         });
     });
 
-    function submitViaMailtoFallback(formData) {
-      var lines = [];
-      formData.forEach(function (value, key) {
-        if (key === "company_website_hp" || key === "_subject" || key === "lead_destination") return;
-        lines.push(key + ": " + value);
-      });
-      var body = encodeURIComponent(lines.join("\n"));
-      var subject = encodeURIComponent("New Website Strategy Request — HealthcareLab");
-      window.location.href = "mailto:" + LEAD_EMAIL + "?subject=" + subject + "&body=" + body;
-    }
-
     function onSubmitSuccess() {
       trackEvent("generate_lead", { form_name: "strategy_request" });
       trackEvent("form_complete", { form_name: "strategy_request" });
-      if (formPanel && successPanel) {
-        formPanel.hidden = true;
-        successPanel.hidden = false;
-        successPanel.setAttribute("tabindex", "-1");
-        successPanel.focus();
-      }
+      window.location.href = "thank-you.html";
     }
 
     function showStatus(message, type) {

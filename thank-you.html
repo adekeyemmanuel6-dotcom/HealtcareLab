@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Thank You | HealthcareLab</title>
+<meta name="description" content="Your website strategy request has been received. HealthcareLab will follow up shortly." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.healthcarelab.com/thank-you" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Funnel+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .ty-section { min-height: calc(100vh - var(--header-h)); display: flex; align-items: center; }
+  .ty-wrap { max-width: 680px; margin-inline: auto; text-align: center; }
+  .ty-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--teal-light); color: var(--success); display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; }
+  .ty-icon svg { width: 36px; height: 36px; }
+  .ty-wrap h1 { font-size: clamp(2rem, 4.4vw, 3rem); margin-bottom: 18px; }
+  .ty-wrap p.lede { font-size: 1.1875rem; max-width: 54ch; margin-inline: auto 28px; }
+  .ty-steps { text-align: left; max-width: 480px; margin: 32px auto 36px; display: flex; flex-direction: column; gap: 14px; }
+  .ty-steps li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.0625rem; color: var(--navy); font-weight: 600; }
+  .ty-steps svg { width: 19px; height: 19px; color: var(--teal-dark); margin-top: 3px; flex-shrink: 0; }
+</style>
+
+<!--
+  Google Ads / GA4 conversion tracking — page-load conversion
+  ------------------------------------------------------------
+  This page loads only after a successful form submission, so it's a
+  reliable "page load" trigger for a Google Ads conversion action.
+  Paste your gtag.js loader here (same snippet as index.html) and add
+  a conversion event fire below.
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-XXXXXXXXX');
+    gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/YOUR_CONVERSION_LABEL' });
+  </script>
+-->
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo" aria-label="HealthcareLab home">
+      <img class="mark" src="assets/favicon.svg" alt="" width="34" height="34" />
+      <span class="word">Healthcare<span class="lab">Lab</span></span>
+    </a>
+    <div class="header-actions">
+      <a class="btn btn-cta header-cta" style="display:inline-flex;" href="https://calendly.com/emmanuelwebflow/30mins" target="_blank" rel="noopener">Book a Free Call</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="ty-section">
+    <div class="container">
+      <div class="ty-wrap">
+        <div class="ty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h1>Thank You. Your Request Has Been Received.</h1>
+        <p class="lede">We've received your website strategy request and will review your details shortly. Here's what happens next.</p>
+        <ul class="ty-steps">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> We review your project details and goals</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> We follow up with personalized recommendations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> No obligation, no pressure, just next steps</li>
+        </ul>
+        <div class="btn-row" style="justify-content:center;">
+          <a class="btn btn-cta btn-lg" data-cta="thank-you-home" href="index.html">Back To Homepage</a>
+          <a class="btn btn-secondary btn-lg" data-cta="thank-you-calendly" href="https://calendly.com/emmanuelwebflow/30mins" target="_blank" rel="noopener">Book a Free Call Instead</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom" style="margin-top:0; border-top:0; padding-top:0;">
+    <span>&copy; <span id="year"></span> HealthcareLab. All rights reserved.</span>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

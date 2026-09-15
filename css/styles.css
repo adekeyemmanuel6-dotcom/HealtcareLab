@@ -758,12 +758,6 @@ html.js .reveal-image.is-visible { clip-path: inset(0% round 18px); transform: s
 .form-status.is-visible { display: block; }
 .form-status.error { background: #FBEAEA; color: var(--danger); border: 1px solid #F0C6C4; }
 
-.success-panel { text-align: center; padding: 32px 16px; }
-.success-panel .icon-circle { width: 68px; height: 68px; border-radius: 50%; background: #E4F5EC; color: var(--success); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-.success-panel .icon-circle svg { width: 34px; height: 34px; }
-.success-panel h3 { font-size: 1.5rem; margin-bottom: 12px; }
-.success-panel p { max-width: 42ch; margin-inline: auto; font-size: 1.0625rem; }
-
 [hidden] { display: none !important; }
 
 /* ---------------- Sticky mobile CTA ---------------- */
@@ -777,7 +771,7 @@ body.has-sticky-cta { padding-bottom: 80px; }
 /* ---------------- Back to top ---------------- */
 .back-to-top {
   position: fixed;
-  left: 18px;
+  right: 18px;
   bottom: 18px;
   z-index: 95;
   width: 48px;
