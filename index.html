@@ -31,8 +31,8 @@
   ------------------------------------
   Paste your gtag.js loader snippet here, then set the conversion ID/label
   on the "generate_lead" event fired from js/main.js on successful form
-  submission. That event is the primary Google Ads conversion — not a
-  button click — per the tracking plan in README.md.
+  submission. That event is the primary Google Ads conversion, not a
+  button click, per the tracking plan in README.md.
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
   <script>
@@ -104,72 +104,80 @@
 <span id="top"></span>
 
 <!-- ============================ HERO ============================ -->
-<section class="hero texture-host">
+<section class="hero hero-dark texture-host">
   <div class="texture-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="container">
-    <div class="hero-copy stagger">
-      <h1 class="reveal" style="--i:0">Your Healthcare Website Should <span class="hl-lime">Build Trust</span> Before Patients Ever Call.</h1>
-      <p class="lede reveal" style="--i:1">
+    <div class="hero-copy-center stagger">
+      <a class="hero-badge reveal" style="--i:0" href="#pricing" data-cta="hero-badge">
+        <span class="hero-badge-tag">New</span> Flat-Rate Website Pricing
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h1 class="reveal" style="--i:1">Your Healthcare Website Should <span class="hl-lime">Build Trust</span> Before Patients Ever Call.</h1>
+      <p class="lede reveal" style="--i:2">
         HealthcareLab designs modern, professional websites for medical practices, clinics, doctors,
-        and healthcare organizations across Texas — built to communicate your services clearly and
+        and healthcare organizations across Texas, built to communicate your services clearly and
         turn website visitors into inquiries and appointments.
       </p>
-      <div class="btn-row reveal" style="--i:2">
-        <a class="btn btn-cta btn-lg" data-cta="hero-primary" href="#contact">Get My Free Website Strategy</a>
+      <div class="btn-row reveal" style="--i:3">
+        <a class="btn btn-lime btn-lg" data-cta="hero-primary" href="#contact">Get My Free Website Strategy</a>
         <a class="btn btn-secondary btn-lg" data-cta="hero-calendly" href="https://calendly.com/emmanuelwebflow/30mins" target="_blank" rel="noopener">Book a Free Call</a>
       </div>
-      <p class="hero-trust reveal" style="--i:3">
+      <p class="hero-trust reveal" style="--i:4">
         <span>No obligation</span><span class="dot">•</span>
         <span>Personalized recommendations</span><span class="dot">•</span>
         <a href="#process">See how it works →</a>
       </p>
     </div>
 
-    <div class="hero-visual reveal reveal-image" style="--i:2" aria-hidden="true">
-      <div class="laptop">
-        <div class="laptop-lid">
-          <span class="laptop-cam"></span>
-          <div class="mockup-frame">
-            <div class="mockup-bar">
-              <span></span><span></span><span></span>
-              <div class="url">yourpractice.com</div>
-            </div>
-            <div class="mockup-nav">
-              <span class="brand">Riverside Family Medicine</span>
-              <div class="links"><span></span><span></span><span></span></div>
-              <span class="btn-mini">Book Now</span>
-            </div>
-            <div class="mockup-hero">
-              <div class="h"></div>
-              <div class="h2"></div>
-              <div class="p1"></div>
-              <div class="p2"></div>
-              <span class="cta">Schedule an Appointment
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <div class="mockup-badges">
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Accepting New Patients</span>
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Board-Certified Providers</span>
+    <div class="hero-cards reveal reveal-image" style="--i:5" aria-hidden="true">
+      <div class="hero-card hero-card-laptop">
+        <div class="laptop">
+          <div class="laptop-lid">
+            <span class="laptop-cam"></span>
+            <div class="mockup-frame">
+              <div class="mockup-bar">
+                <span></span><span></span><span></span>
+                <div class="url">yourpractice.com</div>
+              </div>
+              <div class="mockup-nav">
+                <span class="brand">Riverside Family Medicine</span>
+                <div class="links"><span></span><span></span><span></span></div>
+                <span class="btn-mini">Book Now</span>
+              </div>
+              <div class="mockup-hero">
+                <div class="h"></div>
+                <div class="h2"></div>
+                <div class="p1"></div>
+                <div class="p2"></div>
+                <span class="cta">Schedule an Appointment
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div class="mockup-badges">
+                  <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Accepting New Patients</span>
+                </div>
+              </div>
+              <div class="mockup-grid">
+                <div class="mockup-card"><div class="avatar"></div><div class="line w80"></div><div class="line w60"></div></div>
+                <div class="mockup-card"><div class="avatar"></div><div class="line w80"></div><div class="line w60"></div></div>
+                <div class="mockup-card"><div class="avatar"></div><div class="line w80"></div><div class="line w60"></div></div>
               </div>
             </div>
-            <div class="mockup-grid">
-              <div class="mockup-card"><div class="avatar"></div><div class="line w80"></div><div class="line w60"></div></div>
-              <div class="mockup-card"><div class="avatar"></div><div class="line w80"></div><div class="line w60"></div></div>
-              <div class="mockup-card"><div class="avatar"></div><div class="line w80"></div><div class="line w60"></div></div>
-            </div>
           </div>
+          <div class="laptop-base"><span class="laptop-trackpad"></span></div>
         </div>
-        <div class="laptop-base"><span class="laptop-trackpad"></span></div>
-        <div class="laptop-shadow"></div>
       </div>
-      <div class="hero-float-card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>
-        </div>
-        <div>
-          <div class="label">Designed for</div>
-          <div class="value">Patient Trust</div>
-        </div>
+      <div class="hero-card hero-card-stat">
+        <span class="hero-card-num" data-count-to="200" data-suffix="+">0+</span>
+        <span class="hero-card-lbl">Clients Served Globally</span>
+      </div>
+      <div class="hero-card hero-card-stat hero-card-fill">
+        <span class="hero-card-num" data-count-to="6" data-suffix="+">0+</span>
+        <span class="hero-card-lbl">Years Of Experience</span>
+      </div>
+      <div class="hero-card hero-card-stat">
+        <span class="hero-card-num" data-count-to="20" data-suffix="%">0%</span>
+        <span class="hero-card-lbl">Avg. Conversion Lift</span>
       </div>
     </div>
   </div>
@@ -231,7 +239,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow">The Problem</span>
       <h2>Is Your Website Losing Potential Patients Before They Contact You?</h2>
-      <p>Most people form an impression of a healthcare organization within seconds of landing on its website — long before they ever pick up the phone or book an appointment.</p>
+      <p>Most people form an impression of a healthcare organization within seconds of landing on its website, long before they ever pick up the phone or book an appointment.</p>
     </div>
     <div class="grid grid-4">
       <div class="card problem reveal">
@@ -247,7 +255,7 @@
       <div class="card problem reveal">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M7 18h10" stroke-linecap="round"/></svg></div>
         <h3>Poor Mobile Experience</h3>
-        <p>Most healthcare searches happen on a phone — a clunky mobile site costs you inquiries.</p>
+        <p>Most healthcare searches happen on a phone, and a clunky mobile site costs you inquiries.</p>
       </div>
       <div class="card problem reveal">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20" stroke-linecap="round"/></svg></div>
@@ -375,7 +383,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow">The Difference</span>
       <h2>A DIY Builder Or A Site Built For Your Business?</h2>
-      <p>Template builders can get a page online fast — but a healthcare website built around your organization is designed to do more than just exist.</p>
+      <p>Template builders can get a page online fast, but a healthcare website built around your organization is designed to do more than just exist.</p>
     </div>
     <div class="compare-wrap reveal">
       <div class="compare-col">
@@ -515,7 +523,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow">Services</span>
       <h2>Healthcare Website Design &amp; Development Services</h2>
-      <p>Everything needed to launch or upgrade a professional healthcare website — designed and built specifically for medical audiences.</p>
+      <p>Everything needed to launch or upgrade a professional healthcare website, designed and built specifically for medical audiences.</p>
     </div>
     <div class="row-list stagger">
       <div class="row-item reveal" style="--i:0">
@@ -603,7 +611,7 @@
         <div class="radial-center reveal">
           <span class="eyebrow">Features I Can Implement</span>
           <h2>Features I Can Implement On Your Website</h2>
-          <p>From booking and intake to provider profiles and patient resources — every feature is chosen for what it does for your visitors, not just what looks impressive.</p>
+          <p>From booking and intake to provider profiles and patient resources, every feature is chosen for what it does for your visitors, not just what looks impressive.</p>
           <a class="btn btn-cta btn-lg" data-cta="features-section" href="#contact">Discuss My Features</a>
         </div>
 
@@ -671,21 +679,21 @@
       <h2>A Track Record Built On Real Projects</h2>
       <p>Numbers from the work HealthcareLab has done for healthcare organizations to date.</p>
     </div>
-    <div class="stats-row reveal">
-      <div class="stat-item">
-        <div class="stat-value">6+</div>
+    <div class="stats-row stagger">
+      <div class="stat-item reveal" style="--i:0">
+        <div class="stat-value" data-count-to="6" data-suffix="+">0+</div>
         <div class="stat-label">Years Of Experience</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-value">200+</div>
+      <div class="stat-item reveal" style="--i:1">
+        <div class="stat-value" data-count-to="200" data-suffix="+">0+</div>
         <div class="stat-label">Clients Served Globally</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-value">$500K+</div>
+      <div class="stat-item reveal" style="--i:2">
+        <div class="stat-value" data-count-to="500" data-prefix="$" data-suffix="K+">$0K+</div>
         <div class="stat-label">Client Revenue Generated</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-value">20%</div>
+      <div class="stat-item reveal" style="--i:3">
+        <div class="stat-value" data-count-to="20" data-suffix="%">0%</div>
         <div class="stat-label">Avg. Conversion Increase</div>
       </div>
     </div>
@@ -701,22 +709,22 @@
     </div>
     <div class="process-list">
       <div class="process-step reveal">
-        <span class="step-num">01 — Discovery</span>
+        <span class="step-num">01. Discovery</span>
         <h3>Understand Your Organization</h3>
         <p>We learn about your organization, audience, services, goals, and current website challenges.</p>
       </div>
       <div class="process-step reveal">
-        <span class="step-num">02 — Strategy</span>
+        <span class="step-num">02. Strategy</span>
         <h3>Plan The Structure</h3>
         <p>We develop the page structure, messaging hierarchy, user journey, and conversion strategy.</p>
       </div>
       <div class="process-step reveal">
-        <span class="step-num">03 — Design &amp; Development</span>
+        <span class="step-num">03. Design &amp; Development</span>
         <h3>Build The Website</h3>
         <p>We design and build the website with responsive UX and modern, reliable technology.</p>
       </div>
       <div class="process-step reveal">
-        <span class="step-num">04 — Launch &amp; Optimize</span>
+        <span class="step-num">04. Launch &amp; Optimize</span>
         <h3>Go Live &amp; Improve</h3>
         <p>We launch the website and identify opportunities for continued improvement over time.</p>
       </div>
@@ -738,16 +746,16 @@
             <circle cx="10" cy="430" r="140" fill="var(--lime)" opacity="0.12"/>
           </svg>
           <span class="initials">EA</span>
-          <div class="role-chip">Emmanuel A. — Healthcare Web Developer &amp; Designer</div>
+          <div class="role-chip">Emmanuel A., Healthcare Web Developer &amp; Designer</div>
         </div>
       </div>
       <div class="about-copy reveal">
         <span class="eyebrow">The Person Behind The Work</span>
         <h2>Meet Emmanuel A., The Developer &amp; Designer Behind HealthcareLab</h2>
         <p>HealthcareLab is built and run by Emmanuel A., a web developer and designer who works specifically with healthcare organizations to design and build websites that communicate clearly, build trust, and make it easy for patients to take the next step.</p>
-        <p>Every project is handled directly — from strategy and page structure through design and development — so you're working with the person actually building your website, not passed between account managers.</p>
+        <p>Every project is handled directly, from strategy and page structure through design and development, so you're working with the person actually building your website, not passed between account managers.</p>
         <ul class="about-points">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Direct communication throughout your project — no middlemen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Direct communication throughout your project, no middlemen</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Focused specifically on healthcare organizations, not general small business sites</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Hands-on design and development, start to finish</li>
         </ul>
@@ -775,63 +783,131 @@
       <div class="outcome-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Provide a better mobile experience</p></div>
       <div class="outcome-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Support your marketing campaigns</p></div>
     </div>
-    <div class="testimonial-placeholder reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      <p>Client testimonials and project results will be featured here as they become available.</p>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Client Feedback</span>
+      <h2>What Clients Think</h2>
+      <p>Real client reviews will appear here as projects are completed. HealthcareLab does not publish invented or placeholder reviews.</p>
+    </div>
+    <div class="carousel reveal" data-carousel>
+      <div class="carousel-track" data-carousel-track>
+        <div class="carousel-slide">
+          <div class="testimonial-placeholder-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            <p>Client reviews and project results will be featured here as they become available.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls" data-carousel-controls>
+        <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Previous review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="carousel-dots" data-carousel-dots></div>
+        <button class="carousel-arrow" type="button" data-carousel-next aria-label="Next review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ PORTFOLIO ============================ -->
-<section>
+<!-- ============================ PORTFOLIO / GALLERY CAROUSEL ============================ -->
+<section id="work">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Our Work</span>
       <h2>Websites Designed To Make A Stronger First Impression</h2>
-      <p>Sample layout concepts showing the level of design quality and structure applied to every project.</p>
+      <p>Sample layout concepts showing the level of design quality and structure applied to every project. Real project photos will replace these as work is completed and added.</p>
     </div>
-    <div class="grid grid-3">
-      <div class="card portfolio-card reveal">
-        <div class="portfolio-thumb">
-          <span class="concept-tag">Concept</span>
-          <div class="bar w70"></div><div class="bar w40"></div>
-          <div class="block"></div>
+    <div class="carousel reveal" data-carousel>
+      <div class="carousel-track" data-carousel-track>
+        <div class="carousel-slide">
+          <div class="card portfolio-card">
+            <div class="portfolio-thumb">
+              <span class="concept-tag">Concept</span>
+              <img src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=700&q=80" alt="Sample medical practice website concept" loading="lazy" onerror="this.remove()" />
+            </div>
+            <div class="portfolio-body">
+              <span class="industry">Medical Practice</span>
+              <h3>Multi-Provider Practice Website</h3>
+              <p>A homepage and provider-directory concept built for a multi-physician practice.</p>
+              <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
         </div>
-        <div class="portfolio-body">
-          <span class="industry">Medical Practice</span>
-          <h3>Multi-Provider Practice Website</h3>
-          <p>A homepage and provider-directory concept built for a multi-physician practice.</p>
-          <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="carousel-slide">
+          <div class="card portfolio-card">
+            <div class="portfolio-thumb">
+              <span class="concept-tag">Concept</span>
+              <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80" alt="Sample dental practice website concept" loading="lazy" onerror="this.remove()" />
+            </div>
+            <div class="portfolio-body">
+              <span class="industry">Dental Practice</span>
+              <h3>Modern Dental Homepage</h3>
+              <p>A clean, appointment-focused layout concept designed for a general dentistry practice.</p>
+              <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="card portfolio-card">
+            <div class="portfolio-thumb">
+              <span class="concept-tag">Concept</span>
+              <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=700&q=80" alt="Sample mental health practice landing page concept" loading="lazy" onerror="this.remove()" />
+            </div>
+            <div class="portfolio-body">
+              <span class="industry">Mental Health Practice</span>
+              <h3>Therapy Practice Landing Page</h3>
+              <p>A warm, trust-focused landing page concept built for a mental health services campaign.</p>
+              <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="card portfolio-card">
+            <div class="portfolio-thumb">
+              <span class="concept-tag">Concept</span>
+              <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=700&q=80" alt="Sample clinic website concept" loading="lazy" onerror="this.remove()" />
+            </div>
+            <div class="portfolio-body">
+              <span class="industry">Clinic</span>
+              <h3>Multi-Service Clinic Homepage</h3>
+              <p>A service-first layout concept for a clinic with several departments and providers.</p>
+              <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="card portfolio-card">
+            <div class="portfolio-thumb">
+              <span class="concept-tag">Concept</span>
+              <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=700&q=80" alt="Sample wellness practice website concept" loading="lazy" onerror="this.remove()" />
+            </div>
+            <div class="portfolio-body">
+              <span class="industry">Wellness</span>
+              <h3>Wellness Studio Homepage</h3>
+              <p>A brand-forward concept for a wellness practice focused on preventive care.</p>
+              <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card portfolio-card reveal">
-        <div class="portfolio-thumb">
-          <span class="concept-tag">Concept</span>
-          <div class="bar w70"></div><div class="bar w40"></div>
-          <div class="block"></div>
-        </div>
-        <div class="portfolio-body">
-          <span class="industry">Dental Practice</span>
-          <h3>Modern Dental Homepage</h3>
-          <p>A clean, appointment-focused layout concept designed for a general dentistry practice.</p>
-          <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-      <div class="card portfolio-card reveal">
-        <div class="portfolio-thumb">
-          <span class="concept-tag">Concept</span>
-          <div class="bar w70"></div><div class="bar w40"></div>
-          <div class="block"></div>
-        </div>
-        <div class="portfolio-body">
-          <span class="industry">Mental Health Practice</span>
-          <h3>Therapy Practice Landing Page</h3>
-          <p>A warm, trust-focused landing page concept built for a mental health services campaign.</p>
-          <a class="portfolio-link" href="#contact">View Concept <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
+      <div class="carousel-controls">
+        <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Previous project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="carousel-dots" data-carousel-dots></div>
+        <button class="carousel-arrow" type="button" data-carousel-next aria-label="Next project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </div>
-    <p class="portfolio-note">Real project case studies will be added here as work is completed.</p>
+    <p class="portfolio-note">Real project case studies and screenshots will be added here as work is completed.</p>
   </div>
 </section>
 
@@ -906,7 +982,7 @@
     <div class="objection-grid reveal">
       <div class="objection">
         <h3>"I already have a website."</h3>
-        <p>That's fine — HealthcareLab can redesign or improve your existing website. You don't need to be starting a new business or project from scratch.</p>
+        <p>That's fine. HealthcareLab can redesign or improve your existing website. You don't need to be starting a new business or project from scratch.</p>
       </div>
       <div class="objection">
         <h3>"I don't know what my website should say."</h3>
@@ -930,7 +1006,7 @@
       </div>
       <div class="objection" style="grid-column: 1 / -1;">
         <h3>"How much does a healthcare website cost?"</h3>
-        <p>A standard healthcare website starts at $1,999. Final pricing depends on scope, pages, and features — a free consultation will get you an exact number for your project.</p>
+        <p>A standard healthcare website starts at $1,999. Final pricing depends on scope, pages, and features. A free consultation will get you an exact number for your project.</p>
       </div>
     </div>
   </div>
@@ -954,7 +1030,7 @@
       </details>
       <details class="faq-item">
         <summary>Can you redesign my existing healthcare website?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-        <div class="faq-answer">Yes. Website redesigns are a core service — we can modernize your existing site's design, structure, and messaging.</div>
+        <div class="faq-answer">Yes. Website redesigns are a core service. We can modernize your existing site's design, structure, and messaging.</div>
       </details>
       <details class="faq-item">
         <summary>Do you build mobile-friendly websites?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
@@ -970,7 +1046,7 @@
       </details>
       <details class="faq-item">
         <summary>Will my website be SEO-friendly?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-        <div class="faq-answer">Websites are built with a clean, SEO-friendly foundation — proper structure, headings, and technical setup that can support search visibility over time.</div>
+        <div class="faq-answer">Websites are built with a clean, SEO-friendly foundation: proper structure, headings, and technical setup that can support search visibility over time.</div>
       </details>
       <details class="faq-item">
         <summary>Can I update the website myself?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
@@ -990,7 +1066,7 @@
       </details>
       <details class="faq-item">
         <summary>What happens after I submit the form?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-        <div class="faq-answer">Your request is reviewed, and we'll follow up with personalized recommendations and next steps for your project — with no obligation.</div>
+        <div class="faq-answer">Your request is reviewed, and we'll follow up with personalized recommendations and next steps for your project, with no obligation.</div>
       </details>
     </div>
   </div>
@@ -1035,7 +1111,7 @@
         <div id="form-panel">
           <div id="form-status" class="form-status" role="alert" aria-live="assertive"></div>
           <form id="strategy-form" novalidate>
-            <!-- Honeypot field — hidden from real users, catches basic bots -->
+            <!-- Honeypot field: hidden from real users, catches basic bots -->
             <div class="hp-field" aria-hidden="true">
               <label for="company_website_hp">Leave this field blank</label>
               <input type="text" id="company_website_hp" name="company_website_hp" tabindex="-1" autocomplete="off" />
@@ -1231,7 +1307,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> HealthcareLab. All rights reserved.</span>
-      <span>Website design services — not a healthcare provider.</span>
+      <span>Website design services, not a healthcare provider.</span>
     </div>
   </div>
 </footer>

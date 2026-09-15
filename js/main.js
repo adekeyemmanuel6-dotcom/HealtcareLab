@@ -34,11 +34,144 @@
     initMobileNav();
     initReveal();
     initHeroEntrance();
+    initCountUp();
+    initCarousels();
     initCtaTracking();
     initScrollDepth();
     initStickyCta();
     initContactForm();
   });
+
+  /* ---------------- Carousels ---------------------------------------------
+     Native scroll-snap does the actual scrolling/swiping; this just adds
+     arrow buttons, dot pagination, and keyboard support on top, and hides
+     controls entirely when there's nothing to page through (e.g. the
+     testimonials carousel before real reviews are added). */
+  function initCarousels() {
+    document.querySelectorAll("[data-carousel]").forEach(function (root) {
+      var track = root.querySelector("[data-carousel-track]");
+      var slides = track ? Array.prototype.slice.call(track.children) : [];
+      var prevBtn = root.querySelector("[data-carousel-prev]");
+      var nextBtn = root.querySelector("[data-carousel-next]");
+      var dotsWrap = root.querySelector("[data-carousel-dots]");
+      var controls = root.querySelector("[data-carousel-controls]") ||
+        (prevBtn && prevBtn.closest(".carousel-controls"));
+      if (!track || slides.length === 0) return;
+
+      if (slides.length <= 1) {
+        if (controls) controls.hidden = true;
+        return;
+      }
+
+      var dots = [];
+      if (dotsWrap) {
+        slides.forEach(function (_, i) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+          dot.addEventListener("click", function () { scrollToSlide(i); });
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        });
+      }
+
+      function currentIndex() {
+        var trackLeft = track.getBoundingClientRect().left;
+        var closest = 0;
+        var closestDist = Infinity;
+        slides.forEach(function (slide, i) {
+          var dist = Math.abs(slide.getBoundingClientRect().left - trackLeft);
+          if (dist < closestDist) { closestDist = dist; closest = i; }
+        });
+        return closest;
+      }
+
+      function updateUI() {
+        var index = currentIndex();
+        dots.forEach(function (dot, i) { dot.classList.toggle("is-active", i === index); });
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === slides.length - 1;
+      }
+
+      function scrollToSlide(i) {
+        i = Math.max(0, Math.min(i, slides.length - 1));
+        slides[i].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", function () { scrollToSlide(currentIndex() - 1); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { scrollToSlide(currentIndex() + 1); });
+
+      track.setAttribute("tabindex", "0");
+      track.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight") { scrollToSlide(currentIndex() + 1); }
+        else if (e.key === "ArrowLeft") { scrollToSlide(currentIndex() - 1); }
+      });
+
+      var ticking = false;
+      track.addEventListener("scroll", function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () { updateUI(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateUI();
+    });
+  }
+
+  /* ---------------- Count-up stat numbers --------------------------------- */
+  function initCountUp() {
+    var items = document.querySelectorAll("[data-count-to]");
+    if (!items.length) return;
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setValue(el, value) {
+      var prefix = el.getAttribute("data-prefix") || "";
+      var suffix = el.getAttribute("data-suffix") || "";
+      el.textContent = prefix + value + suffix;
+    }
+
+    function animate(el) {
+      var target = parseFloat(el.getAttribute("data-count-to"), 10);
+      if (reduceMotion || isNaN(target)) {
+        setValue(el, target);
+        return;
+      }
+      var duration = 1400;
+      var start = null;
+      function step(timestamp) {
+        if (start === null) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        setValue(el, Math.round(target * eased));
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          setValue(el, target);
+        }
+      }
+      window.requestAnimationFrame(step);
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(animate);
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    items.forEach(function (el) { observer.observe(el); });
+  }
 
   /* ---------------- Hero entrance ----------------------------------------
      Hero content sits right at the fold on many viewports, where the

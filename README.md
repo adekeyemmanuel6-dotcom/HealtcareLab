@@ -122,7 +122,40 @@ the page (hero, About section, final CTA, contact sidebar) link to
 `index.html` if the Calendly link ever changes — it appears in five places,
 each with its own `data-cta` value for tracking.
 
-## 8. Logo
+## 8. What changed in this pass
+
+- **Hero rebuilt dark**, matching a bold SaaS-style reference: badge pill,
+  centered headline/CTAs, and a floating card row (mini laptop preview +
+  three real stat cards) below. All copy was re-checked for em dashes,
+  none remain anywhere on the page.
+- **Stat numbers count up** (`[data-count-to]` in `index.html`,
+  `initCountUp()` in `js/main.js`) when scrolled into view, and jump
+  straight to the final value under `prefers-reduced-motion`.
+- **Icon system**: solid navy/lime badges were replaced with a rotating
+  soft-pastel palette (blue/amber/purple/green, defined as `--pastel-*`
+  variables) across trust-bar, Services, and Why HealthcareLab icons, to
+  match a supplied reference image.
+- **Reviews carousel** (`#` "What Clients Think" section): built as a real,
+  functional carousel component, but populated only with an honest
+  "reviews coming soon" placeholder card. **No testimonials were
+  fabricated** — no invented names, companies, quotes, or star ratings.
+  When real reviews are available, add more `.carousel-slide` entries
+  using `.testimonial-card` (see the CSS for the markup shape); the
+  carousel's arrows/dots activate automatically once there's more than
+  one slide.
+- **Project gallery carousel**: the old static 3-card Portfolio grid is now
+  a 6-slide carousel (same arrows/dots component as reviews) with
+  Unsplash placeholder images and the same `onerror` graceful-fallback
+  pattern used elsewhere — see item 5a above for the general caveat about
+  verifying these load. Replace the `src` attributes with real project
+  screenshots as work is completed and uploaded.
+- **Radial "Features" section**: removed the card-style background from
+  each list item (now flat icon + text) and widened the ring/lists to use
+  more of the page's width.
+- Container width is a fixed 1400px max (`--max-width` in `css/styles.css`),
+  confirmed via automated check at a 1920px viewport.
+
+## 8a. Logo
 
 The header/footer logo is a hand-rebuilt SVG (`assets/favicon.svg`) — a
 shield-and-flask mark modeled on the reference image supplied, since that
