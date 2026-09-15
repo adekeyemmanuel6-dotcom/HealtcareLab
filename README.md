@@ -122,19 +122,48 @@ the page (hero, About section, final CTA, contact sidebar) link to
 `index.html` if the Calendly link ever changes — it appears in five places,
 each with its own `data-cta` value for tracking.
 
+## 8. Logo
+
+The header/footer logo is a hand-rebuilt SVG (`assets/favicon.svg`) — a
+shield-and-flask mark modeled on the reference image supplied, since that
+image wasn't accessible as a file in this environment (only visible inline
+in chat). The reference image read "Healtcare Lab" (missing an 'h'); the
+wordmark here uses the correct "HealthcareLab" spelling used everywhere else
+on the site. If you have the original logo file, drop it in as
+`assets/logo.svg` (or `.png`) and swap the `<img src="assets/favicon.svg">`
+references in `index.html`/`privacy.html` to point at it.
+
 ## Design system
 
-- **Fonts**: Space Grotesk (headings) + Inter (body), loaded from Google
-  Fonts in `<head>`. Falls back to the system sans stack if the font request
-  fails, so the page never breaks without them.
+- **Fonts**: Funnel Display (headings) + Funnel Sans (body), loaded from
+  Google Fonts in `<head>`. Falls back to the system sans stack if the font
+  request fails, so the page never breaks without them.
 - **Palette**: deep forest green (`--navy`) as the primary dark/text color,
   warm cream background, a bold lime accent (`--lime`) for high-energy CTAs
   and highlighted headline words, all checked for WCAG AA contrast.
-- **Motion**: scroll-reveal (fade/slide), an auto-scrolling marquee trust
-  strip, and a subtle hover lift on the hero mockup — all built with plain
-  CSS/JS, no animation library. Reveal is visible-by-default (see
-  `html.js .reveal` in `css/styles.css`) so nothing depends on JavaScript
-  running to be seen, and honors `prefers-reduced-motion`.
+- **Type floor**: every real piece of UI text on the page is 16px (1rem) or
+  larger — labels, tags, form hints, footer text included. The only
+  exceptions are the simulated browser chrome inside the decorative hero
+  mockup (`.mockup-*` classes), which is an illustration of a miniature
+  website, not real page copy.
+- **Layout**: sections intentionally vary in structure rather than
+  repeating a heading+3-card-grid pattern — an editorial numbered list
+  (Services), a sticky split intro + list (Why HealthcareLab), a radial
+  feature layout, dark stat/pricing blocks, and a DIY-vs-HealthcareLab
+  comparison table are mixed with a smaller number of card grids.
+- **No decorative gradient blobs**: replaced with a faint engineered grid
+  texture (`.texture-grid`) used sparingly behind the hero, stats, and
+  final CTA sections.
+- **Motion**: scroll-reveal (fade/slide/scale) with a `cubic-bezier(0.16, 1,
+  0.3, 1)` ease, a staggered reveal for row/list groups (`.stagger` +
+  `--i` custom property per item), button hover micro-interactions (arrow
+  nudge), an animated nav underline, an auto-scrolling marquee strip, and a
+  subtle hover lift on the hero mockup — all built with plain CSS/JS, no
+  animation library. Reveal is visible-by-default (see `html.js .reveal` in
+  `css/styles.css`) so nothing depends on JavaScript running to be seen, and
+  everything honors `prefers-reduced-motion`.
+- **Container**: fixed at 1400px max-width, fluid and responsive below that
+  down to mobile.
 
 ## Accessibility & performance notes
 
