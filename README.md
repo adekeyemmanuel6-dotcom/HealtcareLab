@@ -196,7 +196,7 @@ file, drop it in as `assets/logo.svg` (or `.png`) and swap the
 - **Layout**: sections intentionally vary in structure rather than
   repeating a heading+3-card-grid pattern — an editorial numbered list
   (Services), a sticky split intro + list (Why Healthcare Dev), a radial
-  feature layout, dark stat/pricing blocks, and a DIY-vs-Healthcare Dev
+  feature layout, dark stat/pricing blocks, and a DIY-vs-agency
   comparison table are mixed with a smaller number of card grids.
 - **No decorative gradient blobs**: replaced with a faint engineered grid
   texture (`.texture-grid`) used sparingly behind the hero, stats, and
