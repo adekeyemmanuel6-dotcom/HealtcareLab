@@ -33,11 +33,28 @@
     initHeader();
     initMobileNav();
     initReveal();
+    initHeroEntrance();
     initCtaTracking();
     initScrollDepth();
     initStickyCta();
     initContactForm();
   });
+
+  /* ---------------- Hero entrance ----------------------------------------
+     Hero content sits right at the fold on many viewports, where the
+     scroll-reveal observer's rootMargin can miss it on initial load,
+     leaving it to wait on the multi-second safety-net timeout. The hero
+     should always animate in immediately on page load instead, so this
+     triggers it directly rather than waiting on scroll/intersection. */
+  function initHeroEntrance() {
+    var items = document.querySelectorAll(".hero-copy .reveal, .hero-visual.reveal");
+    if (!items.length) return;
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        items.forEach(function (el) { el.classList.add("is-visible"); });
+      });
+    });
+  }
 
   /* ---------------- Sticky header shadow on scroll --------------------- */
   function initHeader() {
