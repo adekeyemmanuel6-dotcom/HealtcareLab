@@ -1160,7 +1160,7 @@
 
             <fieldset class="form-fieldset">
               <legend>Business Information</legend>
-              <div class="form-grid cols-2">
+              <div class="form-grid">
                 <div class="field">
                   <label for="org-type">What type of healthcare organization are you? *</label>
                   <select id="org-type" name="organization_type" required aria-describedby="org-type-error">
@@ -1179,14 +1179,15 @@
                   <span class="field-error" id="org-type-error"></span>
                 </div>
                 <div class="field">
-                  <label for="city">Where are you located?</label>
-                  <div class="form-grid cols-2" style="gap: 8px;">
-                    <select id="state" name="state">
-                      <option selected>Texas</option>
-                      <option>Outside Texas</option>
-                    </select>
-                    <input type="text" id="city" name="city" placeholder="City" autocomplete="address-level2" />
-                  </div>
+                  <label for="state">State</label>
+                  <select id="state" name="state">
+                    <option selected>Texas</option>
+                    <option>Outside Texas</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" placeholder="City" autocomplete="address-level2" />
                 </div>
               </div>
             </fieldset>
